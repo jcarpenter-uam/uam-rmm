@@ -1,0 +1,23 @@
+services:
+  #####################
+  ##### Rustdesk  #####
+  #####################
+  rustdesk-hbbs:
+    container_name: rustdesk-hbbs
+    image: rustdesk/rustdesk-server:latest
+    command: hbbs
+    volumes:
+      - ./rustdesk:/root
+    network_mode: "host" # see the real incoming IP Address rather than the Container IP
+    depends_on:
+      - rustdesk-hbbr
+    restart: unless-stopped
+
+  rustdesk-hbbr:
+    container_name: rustdesk-hbbr
+    image: rustdesk/rustdesk-server:latest
+    command: hbbr
+    volumes:
+      - ./rustdesk:/root
+    network_mode: "host" # see the real incoming IP Address rather than the Container IP
+    restart: unless-stopped
