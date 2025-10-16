@@ -21,3 +21,42 @@ services:
       - ./rustdesk:/root
     network_mode: "host" # see the real incoming IP Address rather than the Container IP
     restart: unless-stopped
+
+  ###################
+  ##### GRAFANA #####
+  ###################
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_FEATURE_TOGGLES_ENABLE=dashboardNewLayouts,kubernetesDashboards
+    volumes:
+      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+    networks:
+      - uam-rmm
+
+  ######################
+  ##### PROMETHEUS #####
+  ######################
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - prometheus:/prometheus
+    networks:
+      - uam-rmm
+
+volumes:
+  prometheus:
+
+networks:
+  uam-rmm:
+    driver: bridge
