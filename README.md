@@ -29,6 +29,7 @@ Note: This technology stack is under active evaluation and may be subject to cha
 | **RustDesk** | Provides secure and easy-to-use **Remote Desktop** access. |
 | **Wazuh** | A robust **Security Information and Event Management (SIEM)** platform for threat detection and compliance. |
 | **GLPI** | An IT asset management system for **Inventory and Software Management**. |
+| **Grafana** | Single **Dashboard** for centralized management. |
 | **Prometheus** | A powerful tool for collecting and querying **System Metrics** and alerting. |
 | **Ansible** | An automation engine for **Remote Script Execution**, configuration management, and application deployment. |
 | **Nebula** | A scalable overlay networking tool that creates a secure **Mesh VPN Network**. |
