@@ -22,6 +22,8 @@ This project combines several powerful open-source tools to create a comprehensi
 
 The UAM-RMM tool integrates the following open-source platforms to provide its core functionality:
 
+Note: This technology stack is under active evaluation and may be subject to change based on ongoing testing and project requirements.
+
 | Tool | Purpose |
 | :--- | :--- |
 | **RustDesk** | Provides secure and easy-to-use **Remote Desktop** access. |
