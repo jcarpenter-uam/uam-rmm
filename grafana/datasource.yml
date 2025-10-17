@@ -8,3 +8,22 @@ datasources:
     access: proxy
     editable: true
     uid: prometheus-ds-uid
+
+  - name: Wazuh
+    uid: wazuh-ds-uid
+    type: elasticsearch
+    url: https://wazuh.indexer:9200
+    access: proxy
+    isDefault: false
+    editable: true
+    jsonData:
+      esVersion: 7.10.0
+      database: "[wazuh-alerts-4.x-*]"
+      timeField: "@timestamp"
+      maxConcurrentShardRequests: 5
+      timeInterval: "10s"
+      tlsSkipVerify: true
+    basicAuth: true
+    basicAuthUser: "${WAZUH_INDEXER_USERNAME}"
+    secureJsonData:
+      basicAuthPassword: "${WAZUH_INDEXER_PASSWORD}"

@@ -35,8 +35,12 @@ services:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_UI_USER}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_UI_PASSWORD}
       - GF_FEATURE_TOGGLES_ENABLE=dashboardNewLayouts,kubernetesDashboards
+        # For Wazuh Datasource
+      - WAZUH_INDEXER_USERNAME=${WAZUH_INDEXER_USERNAME}
+      - WAZUH_INDEXER_PASSWORD=${WAZUH_INDEXER_PASSWORD}
     volumes:
       - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
     networks:
       - uam-rmm
 
