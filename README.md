@@ -38,6 +38,18 @@ Note: This technology stack is under active evaluation and may be subject to cha
 
 ## Setup
 
-TBD
+1.  **Run Installer Script**
+
+    This script is a wrapper for any setup scripts within the [setup-scripts](https://github.com/jcarpenter-uam/uam-rmm/tree/master/setup-scripts) directory. Feel free to check them out if need be.
+
+    ```
+    sudo ./installer.sh
+    ```
+
+2.  **Run Docker Compose Stack**
+
+    ```
+    docker compose up -d
+    ```
 
 ---
